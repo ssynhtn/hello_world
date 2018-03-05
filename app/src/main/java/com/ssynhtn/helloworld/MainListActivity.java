@@ -69,6 +69,7 @@ public class MainListActivity extends AppCompatActivity {
         recycler_view.setAdapter(mainAdapter);
 
         // 每次都打开最后一个item
+        // 另一个comment
         MainAdapter.Item item = items.get(items.size() - 1);
         Intent intent = new Intent(this, item.clazz);
         startActivity(intent);
