@@ -68,6 +68,7 @@ public class MainListActivity extends AppCompatActivity {
         recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recycler_view.setAdapter(mainAdapter);
 
+        // 每次都打开最后一个item
         MainAdapter.Item item = items.get(items.size() - 1);
         Intent intent = new Intent(this, item.clazz);
         startActivity(intent);
