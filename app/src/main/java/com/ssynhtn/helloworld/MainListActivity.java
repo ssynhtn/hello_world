@@ -68,6 +68,7 @@ public class MainListActivity extends AppCompatActivity {
         recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recycler_view.setAdapter(mainAdapter);
 
+        // 另一个comment
         MainAdapter.Item item = items.get(items.size() - 1);
         Intent intent = new Intent(this, item.clazz);
         startActivity(intent);
