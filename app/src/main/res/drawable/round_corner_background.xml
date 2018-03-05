@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:state_enabled="true">
+        <shape>
+            <corners android:radius="@dimen/progress_button_corner_radius" />
+            <solid android:color="#e9eaeb" />
+            <stroke android:width="@dimen/my0.5dp" android:color="#bdbebe" />
+        </shape>
+    </item>
+    <item android:state_enabled="true">
+        <shape>
+            <corners android:radius="@dimen/progress_button_corner_radius" />
+            <solid android:color="@android:color/white" />
+            <stroke android:width="@dimen/my0.5dp" android:color="#c6c6c6" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="@dimen/progress_button_corner_radius" />
+            <solid android:color="#f6f6f6" />
+            <stroke android:width="@dimen/my0.5dp" android:color="#dadada" />
+        </shape>
+    </item>
+</selector>

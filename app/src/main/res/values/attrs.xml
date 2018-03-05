@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StepCircleView">
+        <attr name="scv_ringWidth" format="dimension" />
+        <attr name="scv_ringMarin" format="dimension" />
+        <attr name="scv_innerRingWidth" format="dimension" />
+        <attr name="scv_markerRadius" format="dimension" />
+        <attr name="scv_innerRingAlpha" format="float" />
+        <attr name="scv_textAlpha" format="float" />
+        <attr name="scv_textSizeLarge" format="dimension" />
+        <attr name="scv_textSizeSmall" format="dimension" />
+        <attr name="scv_sepWidth" format="dimension" />
+        <attr name="scv_textLineSpacing" format="dimension" />
+        <attr name="scv_textWordSpacing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressButton">
+        <attr name="pb_textNormal" format="string" />
+        <attr name="pb_textProgress" format="string" />
+        <attr name="pb_progressDrawable" format="reference" />
+    </declare-styleable>
+</resources>

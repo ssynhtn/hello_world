@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="my280dp">280dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="progress_button_height">42dp</dimen>
+    <dimen name="progress_button_corner_radius">21dp</dimen>
+    <dimen name="my0.5dp">0.5dp</dimen>
+</resources>

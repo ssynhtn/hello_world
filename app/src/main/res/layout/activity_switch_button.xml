@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ssynhtn.helloworld.SwitchButtonActivity">
+
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/sb_ios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:kswAnimationDuration="300"
+        app:kswBackDrawable="@drawable/ios_back_drawable"
+        app:kswThumbDrawable="@drawable/ios_thumb_selector"
+        app:kswThumbMarginBottom="-8dp"
+        app:kswThumbMarginLeft="-5dp"
+        app:kswThumbMarginRight="-5dp"
+        app:kswThumbMarginTop="-8dp"
+        app:kswThumbRangeRatio="2"
+        />
+
+    <com.ssynhtn.helloworld.IosSwitchButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

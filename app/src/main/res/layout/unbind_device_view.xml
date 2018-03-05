@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    >
+    <com.ssynhtn.helloworld.ProgressButton
+        android:id="@+id/pb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:pb_textNormal="解除绑定"
+        app:pb_textProgress="解绑中..."
+        app:pb_progressDrawable="@drawable/ic_rotate_right_black_18dp"
+        />
+</FrameLayout>

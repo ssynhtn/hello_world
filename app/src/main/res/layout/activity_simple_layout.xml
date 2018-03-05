@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ssynhtn.helloworld.SimpleLayoutActivity">
+
+    <com.ssynhtn.helloworld.view.SimpleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Hello world"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Hello world flasjfkl jfklaflksflksfks"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+    </com.ssynhtn.helloworld.view.SimpleLayout>
+
+</android.support.constraint.ConstraintLayout>
