@@ -25,7 +25,7 @@ public class CoordActivity extends AppCompatActivity {
 
         List<MainAdapter.Item> items = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            items.add(new MainAdapter.Item(MainActivity.class.getSimpleName(), MainActivity.class));
+            items.add(new MainAdapter.Item(PieActivity.class.getSimpleName(), PieActivity.class));
         }
 
         MainAdapter mainAdapter = new MainAdapter(items);

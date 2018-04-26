@@ -8,4 +8,9 @@
     <dimen name="progress_button_height">42dp</dimen>
     <dimen name="progress_button_corner_radius">21dp</dimen>
     <dimen name="my0.5dp">0.5dp</dimen>
+    <dimen name="my50sp">50sp</dimen>
+    <dimen name="sep_height">16dp</dimen>
+
+    <dimen name="chart_padding">16dp</dimen>
+    <dimen name="min_chart_size">100dp</dimen>
 </resources>

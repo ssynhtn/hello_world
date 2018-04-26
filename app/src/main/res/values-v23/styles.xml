@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:textViewStyle">@style/SimpleTextView</item>
+    </style>
+
+    <style name="SimpleTextView" parent="android:Widget.TextView">
+        <item name="android:breakStrategy">simple</item>
+    </style>
+</resources>

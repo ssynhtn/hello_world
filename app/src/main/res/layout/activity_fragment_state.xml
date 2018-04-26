@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ssynhtn.helloworld.FragmentStateActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+
+    <!--<RadioGroup-->
+        <!--android:id="@+id/radio"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--&gt;-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/_1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="1"-->
+            <!--android:gravity="center"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/simple"-->
+            <!--/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/_2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="1"-->
+            <!--android:gravity="center"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/simple"-->
+            <!--/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/_3"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="1"-->
+            <!--android:gravity="center"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/simple"-->
+            <!--/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/_4"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="1"-->
+            <!--android:gravity="center"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/simple"-->
+            <!--/>-->
+
+
+    <!--</RadioGroup>-->
+
+</android.support.v4.widget.NestedScrollView>

@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context="com.ssynhtn.helloworld.BarrierActivity">
 
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="first"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrier"
+        />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:text="second longer"
+        app:layout_constraintTop_toBottomOf="@+id/tv1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrier"
+        />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="third is the longest"
+        app:layout_constraintTop_toBottomOf="@+id/tv2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrier"
+
+        />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="tv1,tv2,tv3"
+        />
+
+    <!--<android.support.constraint.Barrier-->
+        <!--android:id="@+id/barrier_left"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:barrierDirection="start"-->
+        <!--app:constraint_referenced_ids="tv1,tv2,tv3"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Hello"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/barrier"-->
+        <!--/>-->
+
 </android.support.constraint.ConstraintLayout>

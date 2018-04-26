@@ -1,4 +1,4 @@
-package com.langgan.haoshuimian.view.titlebar;
+package com.ssynhtn.helloworld.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.langgan.haoshuimian.R;
+import com.ssynhtn.helloworld.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,14 +21,14 @@ import java.util.List;
  * 这个ViewGroup有点类似于LinearLayout, 默认对于child view它会从左向右排列和FrameLayout
  */
 
-public class MyTitleBarViewCustom extends ViewGroup {
+public class MyTitleBarViewCustomHsm extends ViewGroup {
     private static final String TAG = MyTitleBarViewCustom.class.getSimpleName();
 
-    public MyTitleBarViewCustom(Context context) {
+    public MyTitleBarViewCustomHsm(Context context) {
         this(context, null);
     }
 
-    public MyTitleBarViewCustom(Context context, AttributeSet attrs) {
+    public MyTitleBarViewCustomHsm(Context context, AttributeSet attrs) {
         super(context, attrs);
 
     }

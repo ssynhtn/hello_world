@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ssynhtn.helloworld.AutoSizeActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="手机号"
+        android:maxLines="1"
+        android:textColor="#7A4FD1"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="1px"
+        tools:ignore="MissingPrefix" />
+
+    <EditText
+        android:id="@+id/edit_two"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="手机号"
+        android:maxLines="1"
+        android:textColor="#7A4FD1"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="1px"
+        android:background="@android:color/white"
+        tools:ignore="MissingPrefix" />
+
+</LinearLayout>

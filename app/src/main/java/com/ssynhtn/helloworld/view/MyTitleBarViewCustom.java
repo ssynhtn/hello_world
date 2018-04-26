@@ -11,26 +11,37 @@ import android.view.ViewGroup;
 
 import com.ssynhtn.helloworld.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by huangtongnao on 2018/3/26.
  */
 
-public class MyTitleBarViewTwo extends ViewGroup {
-    private static final String TAG = MyTitleBarViewTwo.class.getSimpleName();
+public class MyTitleBarViewCustom extends ViewGroup {
+    private static final String TAG = MyTitleBarViewCustom.class.getSimpleName();
 
-    public MyTitleBarViewTwo(Context context) {
+    public MyTitleBarViewCustom(Context context) {
         this(context, null);
     }
 
-    public MyTitleBarViewTwo(Context context, AttributeSet attrs) {
+    public MyTitleBarViewCustom(Context context, AttributeSet attrs) {
         super(context, attrs);
 
     }
 
+
+    private List<View> centerViews = new ArrayList<>();
+    private List<View> rightViews = new ArrayList<>();
+
     @SuppressLint("RtlHardcoded")
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        View centerView = null;
+        Log.d(TAG, "onMeasure");
+
+        centerViews.clear();
+        rightViews.clear();
 
         int leftWidthUsed = 0;
         int rightWidthUsed = 0;
@@ -38,41 +49,57 @@ public class MyTitleBarViewTwo extends ViewGroup {
         int widthUsed = 0;
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
+            if (child.getVisibility() == GONE) continue;
+
             LayoutParams params = (LayoutParams) child.getLayoutParams();
 
-            int gravity = Gravity.getAbsoluteGravity(params.gravity, getLayoutDirection()) & Gravity.HORIZONTAL_GRAVITY_MASK;
+            int gravity = params.gravity;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                gravity = Gravity.getAbsoluteGravity(gravity, getLayoutDirection());
+            }
+            int horizontalGravity = gravity & Gravity.HORIZONTAL_GRAVITY_MASK;
 
-            if (gravity == Gravity.CENTER_HORIZONTAL) {
-                centerView = child;
+            if (horizontalGravity == Gravity.CENTER_HORIZONTAL) {
+                centerViews.add(child);
                 Log.d(TAG, "meet center view " + child);
                 continue;
             }
 
-            if (gravity == Gravity.LEFT) {
-                // left
-                measureChildWithMargins(child, widthMeasureSpec, leftWidthUsed + rightWidthUsed, heightMeasureSpec, 0);
-                params.left = leftWidthUsed;
-                leftWidthUsed += child.getMeasuredWidth() + params.leftMargin + params.rightMargin;
-                Log.d(TAG, "left view " + child + ", left " + params.left);
-            } else if (gravity == Gravity.RIGHT) {
-                // right
-                measureChildWithMargins(child, widthMeasureSpec, leftWidthUsed + rightWidthUsed, heightMeasureSpec, 0);
-                params.right = rightWidthUsed;
-                rightWidthUsed += child.getMeasuredWidth() + params.leftMargin + params.rightMargin;
-
-                Log.d(TAG, "right view " + child + ", right " + params.left);
+            if (horizontalGravity == Gravity.RIGHT) {
+                rightViews.add(child);
+                continue;
             }
 
+            // gravity为left或者没有指定的都叠在左边
+            measureChildWithMargins(child, widthMeasureSpec, leftWidthUsed + rightWidthUsed, heightMeasureSpec, 0);
+            params.left = leftWidthUsed;
+            leftWidthUsed += child.getMeasuredWidth() + params.leftMargin + params.rightMargin;
+            Log.d(TAG, "left view " + child + ", left " + params.left);
             heightUsed = Math.max(heightUsed, child.getMeasuredHeight() + params.topMargin + params.bottomMargin);
         }
 
-        if (centerView != null) {
+        Collections.reverse(rightViews);
+        for (View child : rightViews) {
+            LayoutParams params = (LayoutParams) child.getLayoutParams();
+            measureChildWithMargins(child, widthMeasureSpec, leftWidthUsed + rightWidthUsed, heightMeasureSpec, 0);
+            params.right = rightWidthUsed;
+            rightWidthUsed += child.getMeasuredWidth() + params.leftMargin + params.rightMargin;
+
+            Log.d(TAG, "right view " + child + ", right " + params.left);
+            heightUsed = Math.max(heightUsed, child.getMeasuredHeight() + params.topMargin + params.bottomMargin);
+        }
+
+        if (!centerViews.isEmpty()) {
             widthUsed = Math.max(leftWidthUsed, rightWidthUsed) * 2;
+            int centerWidthUsed = 0;
+            for (View centerView : centerViews) {
+                measureChildWithMargins(centerView, widthMeasureSpec, widthUsed, heightMeasureSpec, 0);
 
-            measureChildWithMargins(centerView, widthMeasureSpec, widthUsed, heightMeasureSpec, 0);
-
-            LayoutParams params = (LayoutParams) centerView.getLayoutParams();
-            heightUsed = Math.max(heightUsed, centerView.getMeasuredHeight() + params.topMargin + params.bottomMargin);
+                LayoutParams params = (LayoutParams) centerView.getLayoutParams();
+                heightUsed = Math.max(heightUsed, centerView.getMeasuredHeight() + params.topMargin + params.bottomMargin);
+                centerWidthUsed = Math.max(centerWidthUsed, centerView.getMeasuredWidth() + params.leftMargin + params.rightMargin);
+            }
+            widthUsed += centerWidthUsed;
         } else {
             widthUsed = leftWidthUsed + rightWidthUsed;
         }
@@ -84,17 +111,15 @@ public class MyTitleBarViewTwo extends ViewGroup {
     @SuppressLint("RtlHardcoded")
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.d(TAG, "onLayout");
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
+            if (child.getVisibility() == GONE) continue;
             LayoutParams params = (LayoutParams) child.getLayoutParams();
 
             int gravity = Gravity.getAbsoluteGravity(params.gravity, getLayoutDirection()) & Gravity.HORIZONTAL_GRAVITY_MASK;
             int left = 0;
             switch (gravity) {
-                case Gravity.LEFT: {
-                    left = getPaddingLeft() + params.left + params.leftMargin;
-                    break;
-                }
                 case Gravity.RIGHT: {
                     left = r - l - getPaddingRight() - params.right - params.rightMargin - child.getMeasuredWidth();
                     break;
@@ -103,21 +128,28 @@ public class MyTitleBarViewTwo extends ViewGroup {
                     left = (r - l - getPaddingLeft() - getPaddingRight()) / 2 + getPaddingLeft() - (child.getMeasuredWidth() + params.leftMargin + params.rightMargin) / 2 + params.leftMargin;
                     break;
                 }
+                case Gravity.LEFT:
+                default: {
+                    left = getPaddingLeft() + params.left + params.leftMargin;
+                    break;
+                }
             }
 
             int top = 0;
             int verticalGravity = params.gravity & Gravity.VERTICAL_GRAVITY_MASK;
             switch (verticalGravity) {
-                case Gravity.TOP: {
-                    top = getPaddingTop() + params.topMargin;
-                    break;
-                }
                 case Gravity.BOTTOM: {
                     top = b - t - getPaddingBottom() - child.getMeasuredHeight() - params.bottomMargin;
                     break;
                 }
                 case Gravity.CENTER_VERTICAL: {
                     top = (b - t - getPaddingTop() - getPaddingBottom()) / 2 + getPaddingTop() - (child.getMeasuredHeight() + params.topMargin + params.bottomMargin) / 2 + params.topMargin;
+                    break;
+                }
+                case Gravity.TOP:
+                default: {
+                    top = getPaddingTop() + params.topMargin;
+                    break;
                 }
             }
 
@@ -164,8 +196,8 @@ public class MyTitleBarViewTwo extends ViewGroup {
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
 
-            TypedArray typedArray = c.obtainStyledAttributes(attrs, R.styleable.MyTitleBarViewTwo_Layout);
-            gravity = typedArray.getInt(R.styleable.MyTitleBarViewTwo_Layout_android_layout_gravity, GRAVITY_NONE);
+            TypedArray typedArray = c.obtainStyledAttributes(attrs, R.styleable.MyTitleBarViewCustom_Layout);
+            gravity = typedArray.getInt(R.styleable.MyTitleBarViewCustom_Layout_android_layout_gravity, GRAVITY_NONE);
             typedArray.recycle();
         }
 

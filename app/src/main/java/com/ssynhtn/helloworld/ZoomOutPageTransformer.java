@@ -1,4 +1,4 @@
-package com.thoughtics.beauty.ui.facegen;
+package com.ssynhtn.helloworld;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -6,12 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.makeramen.roundedimageview.RoundedImageView;
-import com.thoughtics.beauty.utils.Utils;
-import com.thoughtics.beauty.view.NoTouchFrameLayout;
-
 /**
- * Created by Administrator on 2017/8/8 0008.
+ * Created by huangtongnao on 2017/8/8.
  */
 
 public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
@@ -20,7 +16,7 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.85f;
     private static final float MIN_ALPHA = 0.5f;
     private static final float DEST_GAP_DP = 21;   // dp
-    private static final float DEST_GAP_PX = Utils.dpToPx(DEST_GAP_DP);
+    private static final float DEST_GAP_PX = DEST_GAP_DP * 3;
 
     public static interface AlphaPolicy {
         boolean isUseAlpha(int pagePosition);
@@ -86,21 +82,23 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
 //        Log.d(TAG, "index " + index);
 //        logView(0, view);
 
-        int index = (int) view.getTag();
+        if (mAlphaPolicy != null) {
+            int index = (int) view.getTag();
 
-        boolean isUseAlpha = mAlphaPolicy != null && mAlphaPolicy.isUseAlpha(index);
-        float alpha = 1;
-        if (isUseAlpha) {
-            alpha = 1 - Math.abs(ratio);
-        }
-        view.setAlpha(alpha);
-        if (mAlphaListener != null) {
-            mAlphaListener.alphaChanged(index, alpha);
+            boolean isUseAlpha = mAlphaPolicy.isUseAlpha(index);
+            float alpha = 1;
+            if (isUseAlpha) {
+                alpha = 1 - Math.abs(ratio);
+            }
+            view.setAlpha(alpha);
+            if (mAlphaListener != null) {
+                mAlphaListener.alphaChanged(index, alpha);
+            }
         }
 
-        if (view instanceof NoTouchFrameLayout) {
-            ((NoTouchFrameLayout) view).setDisableTouch(alpha < 0.5f);
-        }
+//        if (view instanceof NoTouchFrameLayout) {
+//            ((NoTouchFrameLayout) view).setDisableTouch(alpha < 0.5f);
+//        }
 
         // Modify the default slide transition to shrink the page as well
 //            float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
@@ -141,23 +139,23 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
         return sb.toString();
     }
 
-    private RoundedImageView findView(View view) {
-        if (view instanceof RoundedImageView) {
-            return (RoundedImageView) view;
-        }
-
-        if (view instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) view;
-            for (int i = 0; i < group.getChildCount(); i++) {
-                RoundedImageView roundedImageView = findView(group.getChildAt(i));
-                if (roundedImageView != null) {
-                    return roundedImageView;
-                }
-            }
-        }
-
-        return null;
-    }
+//    private RoundedImageView findView(View view) {
+//        if (view instanceof RoundedImageView) {
+//            return (RoundedImageView) view;
+//        }
+//
+//        if (view instanceof ViewGroup) {
+//            ViewGroup group = (ViewGroup) view;
+//            for (int i = 0; i < group.getChildCount(); i++) {
+//                RoundedImageView roundedImageView = findView(group.getChildAt(i));
+//                if (roundedImageView != null) {
+//                    return roundedImageView;
+//                }
+//            }
+//        }
+//
+//        return null;
+//    }
 
     private float f(float x) {
         if (x == 0) return 0;

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ssynhtn.helloworld">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -10,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-
         <service
             android:name=".MyService"
             android:enabled="true"
@@ -29,13 +29,7 @@
             android:launchMode="standard" />
         <activity android:name=".BActivity" />
         <activity android:name=".PopupWindowActivity" />
-        <activity android:name=".MainListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainListActivity" />
         <activity android:name=".TextActivity" />
         <activity android:name=".DialogActivity" />
         <activity
@@ -112,7 +106,68 @@
         <activity android:name=".FinishingVsDestroyedActivity" />
         <activity android:name=".RecyclerViewTestActivity" />
         <activity android:name=".ProgressActivity" />
-        <activity android:name=".FrameAnimationActivity"></activity>
+        <activity android:name=".FrameAnimationActivity" />
+        <activity android:name=".BedActivity" />
+        <activity android:name=".FragmentStateActivity" />
+        <activity android:name=".RecyclerViewExpandActivity" />
+        <activity android:name=".NestedScrollActivity" />
+        <activity android:name=".MyViewActivity" />
+        <activity android:name=".LayoutAnimationActivity" />
+        <activity android:name=".RxActivity" />
+        <activity android:name=".RxBindingActivity" />
+        <activity android:name=".AutoSizeActivity" />
+        <activity android:name=".BreakStrategyActivity" />
+        <activity android:name=".BarrierActivity" />
+        <activity android:name=".TitleBarActivity" />
+        <activity android:name=".PlaceholderActivity" />
+        <activity android:name=".BackStackActivity" />
+        <activity android:name=".DataBindingActivity" />
+        <activity android:name=".ViewPagerRotateActivity" />
+        <activity android:name=".ShaderActivity" />
+        <activity
+            android:name=".ToolbarActivity"
+            android:label="@string/title_activity_toolbar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ToolbarActivityTwo"
+            android:label="@string/title_activity_toolbar_two"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".GlyphActivity" />
+        <activity android:name=".debug.CenterTextActivity" />
+        <activity android:name=".CenterBoundsActivity" />
+        <activity android:name=".TooTallActivity" />
+        <activity android:name=".ItemDecoratorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewPagerLifecycleActivity" />
+        <activity android:name=".GridSepItemDecorationActivity" />
+        <activity android:name=".ZoomViewPagerActivity" />
+        <activity android:name=".VectorDrawableActivity" />
+        <activity android:name=".ScaleAndYActivity" />
+        <activity android:name=".VectorAnimationActivity" />
+        <activity android:name=".MediaPlayerActivity" />
+
+        <service
+            android:name=".ShortLivedService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".ExoPlayerActivity" />
+        <activity android:name=".FullWidthDrawerActivity" />
+        <activity android:name=".YoutubeActivity" />
+        <activity android:name=".DragVerticalActivity" />
+        <activity android:name=".DragHorizontalActivity" />
+        <activity android:name=".DragEdgeActivity" />
+        <activity android:name=".DragCaptureActivity" />
+        <activity android:name=".TestDragActivity" />
+        <activity android:name=".ViewPagerTestActivity" />
+        <activity android:name=".InterceptActivity" />
+        <activity android:name=".PieActivity" />
+        <activity android:name=".InteractiveChartActivity"></activity>
     </application>
 
 </manifest>

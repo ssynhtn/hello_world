@@ -19,4 +19,27 @@
         <attr name="pb_textProgress" format="string" />
         <attr name="pb_progressDrawable" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="MyTitleBarViewCustom_Layout" >
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="PieChart">
+        <attr name="autoCenterPointerInSlice" format="boolean"/>
+        <attr name="highlightStrength" format="float"/>
+        <attr name="pieRotation" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="InteractiveLineGraphView">
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextColor" format="color" />
+        <attr name="labelSeparation" format="dimension" />
+        <attr name="axisThickness" format="dimension" />
+        <attr name="axisColor" format="color" />
+        <attr name="dataThickness" format="dimension" />
+        <attr name="dataColor" format="color" />
+        <attr name="gridThickness" format="dimension" />
+        <attr name="gridColor" format="color" />
+    </declare-styleable>
+
 </resources>

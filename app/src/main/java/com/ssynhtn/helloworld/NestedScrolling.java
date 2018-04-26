@@ -30,7 +30,7 @@ public class NestedScrolling extends AppCompatActivity {
 
         final List<MainAdapter.Item> items = new ArrayList<>();
         for (int i = 0; i < 400; i++) {
-            items.add(new MainAdapter.Item(MainActivity.class.getSimpleName() + i, MainActivity.class));
+            items.add(new MainAdapter.Item(PieActivity.class.getSimpleName() + i, PieActivity.class));
         }
 
         final MainAdapter mainAdapter = new MainAdapter(items);

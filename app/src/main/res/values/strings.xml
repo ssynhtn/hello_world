@@ -1,4 +1,6 @@
 <resources>
+    <string name="user_id">User Id: %1$d</string>
+    <string name="user_age">User Age: %1$d</string>
     <string name="app_name">HelloWorld</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
@@ -91,4 +93,11 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="leak_canary_display_activity_label">@string/app_name</string>
+    <string name="edit_bed_time_note_1">1.健康的睡眠是一种习惯，遵循睡眠的自然规律，是预防和改善睡眠障碍的最好方法。</string>
+    <string name="edit_bed_time_note2">2.请按照APP推荐的睡觉时长执行睡眠计划，您可以调整合适的上床时间。</string>
+    <string name="title_activity_toolbar">ToolbarActivity</string>
+    <string name="title_activity_toolbar_two">ToolbarActivityTwo</string>
+    <string name="music">\uD834\uDD1F</string>
+    <string name="text">j</string>
 </resources>

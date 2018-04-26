@@ -1,10 +1,11 @@
 package com.ssynhtn.helloworld;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.ssynhtn.helloworld.debug.CenterTextActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MainListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         List<MainAdapter.Item> items = new ArrayList<>();
-        items.add(new MainAdapter.Item(MainActivity.class.getSimpleName(), MainActivity.class));
+        items.add(new MainAdapter.Item(PieActivity.class.getSimpleName(), PieActivity.class));
         items.add(new MainAdapter.Item(PopupWindowActivity.class.getSimpleName(), PopupWindowActivity.class));
         items.add(new MainAdapter.Item(AlarmActivity.class.getSimpleName(), AlarmActivity.class));
         items.add(new MainAdapter.Item(TextActivity.class.getSimpleName(), TextActivity.class));
@@ -62,6 +63,26 @@ public class MainListActivity extends AppCompatActivity {
         addItem(items, RecyclerViewTestActivity.class);
         addItem(items, ProgressActivity.class);
         addItem(items, FrameAnimationActivity.class);
+        addItem(items, RecyclerViewExpandActivity.class);
+        addItem(items, FragmentStateActivity.class);
+        addItem(items, NestedScrollActivity.class);
+        addItem(items, MyViewActivity.class);
+        addItem(items, LayoutAnimationActivity.class);
+        addItem(items, RxActivity.class);
+        addItem(items, RxBindingActivity.class);
+        addItem(items, AutoSizeActivity.class);
+        addItem(items, BreakStrategyActivity.class);
+        addItem(items, TitleBarActivity.class);
+        addItem(items, PlaceholderActivity.class);
+        addItem(items, BackStackActivity.class);
+        addItem(items, DataBindingActivity.class);
+        addItem(items, ViewPagerRotateActivity.class);
+        addItem(items, ShaderActivity.class);
+        addItem(items, ToolbarActivity.class);
+        addItem(items, GlyphActivity.class);
+        addItem(items, CenterTextActivity.class);
+        addItem(items, CenterBoundsActivity.class);
+        addItem(items, ItemDecoratorActivity.class);
 
         MainAdapter mainAdapter = new MainAdapter(items);
 
@@ -70,9 +91,9 @@ public class MainListActivity extends AppCompatActivity {
 
         // 每次都打开最后一个item
         // 另一个comment
-        MainAdapter.Item item = items.get(items.size() - 1);
-        Intent intent = new Intent(this, item.clazz);
-        startActivity(intent);
+//        MainAdapter.Item item = items.get(items.size() - 1);
+//        Intent intent = new Intent(this, item.clazz);
+//        startActivity(intent);
 
 
     }

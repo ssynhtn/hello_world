@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ssynhtn.helloworld.BreakStrategyActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_note_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#99A9B0EE"
+        android:textSize="13sp"
+        android:lineSpacingExtra="7dp"
+        android:text="@string/edit_bed_time_note_1"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_note_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#99A9B0EE"
+        android:textSize="13sp"
+        android:text="@string/edit_bed_time_note2"
+        android:lineSpacingExtra="7dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        />
+
+</LinearLayout>

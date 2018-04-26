@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.squareup.haha.perflib.Main;
+
 public class MainActivity extends AppCompatActivity {
 
     private boolean isBind = false;

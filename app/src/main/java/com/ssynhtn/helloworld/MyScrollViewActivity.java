@@ -54,7 +54,7 @@ public class MyScrollViewActivity extends AppCompatActivity {
 
         final List<MainAdapter.Item> items = new ArrayList<>();
         for (int i = 0; i < 32; i++) {
-            items.add(new MainAdapter.Item("" + i, MainActivity.class));
+            items.add(new MainAdapter.Item("" + i, PieActivity.class));
         }
 
         final MainAdapter mainAdapter = new MainAdapter(items);

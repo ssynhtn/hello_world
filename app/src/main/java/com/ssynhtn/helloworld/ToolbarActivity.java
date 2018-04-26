@@ -3,11 +3,10 @@ package com.ssynhtn.helloworld;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
-import com.ssynhtn.helloworld.debug.R;
 
 public class ToolbarActivity extends AppCompatActivity {
 
@@ -26,6 +25,9 @@ public class ToolbarActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(new FragmentStateActivity.SimpleAdapter(getSupportFragmentManager()));
     }
 
 }

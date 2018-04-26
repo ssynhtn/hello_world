@@ -1,4 +1,4 @@
-package com.langgan.haoshuimian.MVP.fragment;
+package com.ssynhtn.helloworld;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
@@ -6,20 +6,19 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.support.annotation.NonNull;
-
-import com.langgan.haoshuimian.fragment.BaseFragment;
+import android.support.v4.app.Fragment;
 
 /**
  * Created by huangtongnao on 2018/4/16.
  * 处理FragmentPagerAdapter中setUserVisibleHint导致的用户观察到的生命周期和实际生命周期不一样的问题
  */
 
-public abstract class ViewPagerLifecycleFragment extends BaseFragment implements LifecycleObserver {
-    private LifecycleRegistry mRegistry = new LifecycleRegistry(this);
+public abstract class ViewPagerLifecycleFragment extends Fragment implements LifecycleObserver {
+    private static final boolean TEST = true;
 
-    public ViewPagerLifecycleFragment() {
-        super.getLifecycle().addObserver(this);
-    }
+    protected abstract String getName();
+
+    private LifecycleRegistry mRegistry = new LifecycleRegistry(this);
 
     @NonNull
     @Override
@@ -27,29 +26,31 @@ public abstract class ViewPagerLifecycleFragment extends BaseFragment implements
         return mRegistry;
     }
 
-    public Lifecycle getFragmentLifecycle() {
-        return super.getLifecycle();
+    public ViewPagerLifecycleFragment() {
+        super.getLifecycle().addObserver(new FragmentLifecycleObserver());
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-    public void onLifecycleEvent(LifecycleOwner owner, Lifecycle.Event event) {
-        switch (event) {
-            case ON_CREATE:
-            case ON_DESTROY:
-                mRegistry.handleLifecycleEvent(event);
-                break;
-            case ON_START:
-            case ON_RESUME:
-            case ON_PAUSE:
-            case ON_STOP:
-                if (getUserVisibleHint()) {
+    class FragmentLifecycleObserver implements LifecycleObserver {
+        @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+        public void onLifecycleEvent(LifecycleOwner owner, Lifecycle.Event event) {
+            switch (event) {
+                case ON_CREATE:
+                case ON_DESTROY:
                     mRegistry.handleLifecycleEvent(event);
-                }
-                break;
+                    break;
+                case ON_START:
+                case ON_RESUME:
+                case ON_PAUSE:
+                case ON_STOP:
+                    if (getUserVisibleHint()) {
+                        mRegistry.handleLifecycleEvent(event);
+                    }
+                    break;
+            }
         }
     }
 
-    @Override
+        @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 

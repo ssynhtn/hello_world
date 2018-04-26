@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android">
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportHeight="12"
+    android:viewportWidth="12">
+
+    <!--&lt;!&ndash; This path draws an orange triangular play icon. &ndash;&gt;-->
+    <!--<path-->
+        <!--android:fillColor="#FF9800"-->
+        <!--android:pathData="M 4,2.5 L 4,9.5 L 9.5,6 Z"/>-->
+
+    <!--&lt;!&ndash; This path draws two green stroked vertical pause bars. &ndash;&gt;-->
+    <!--<path-->
+        <!--android:pathData="M 4,2.5 L 4,9.5 M 8,2.5 L 8,9.5"-->
+        <!--android:strokeColor="#0F9D58"-->
+        <!--android:strokeWidth="2"/>-->
+
+    <!-- This path draws a red circle. -->
+    <path
+        android:fillColor="#DB4437"
+        android:pathData="M 2,6 C 2,3.8 3.8,2 6,2 C 8.2,2 10,3.8 10,6 C 10,8.2 8.2,10 6,10 C 3.8,10 2,8.2 2,6"/>
 
 </vector>

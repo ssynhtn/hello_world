@@ -1,0 +1,21 @@
+<com.ssynhtn.helloworld.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dragLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <View
+        android:id="@+id/drag1"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="8dp"
+        android:background="#AD78CC" />
+
+    <View
+        android:id="@+id/drag2"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="#FF00FF" />
+
+</com.ssynhtn.helloworld.DragLayout>
