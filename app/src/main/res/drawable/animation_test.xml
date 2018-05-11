@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clip xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="left"
+    android:clipOrientation="horizontal"
+    >
+    <animation-list
+        android:oneshot="false">
+        <item android:duration="200" >
+            <shape>
+                <solid android:color="@android:color/holo_blue_bright" />
+            </shape>
+        </item>
+        <item android:duration="200" >
+            <shape>
+                <solid android:color="@android:color/holo_orange_dark" />
+            </shape>
+        </item>
+        <item android:duration="200" >
+            <shape>
+                <solid android:color="@android:color/holo_red_light" />
+            </shape>
+        </item>
+    </animation-list>
+
+</clip>

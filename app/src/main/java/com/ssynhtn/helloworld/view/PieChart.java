@@ -1,6 +1,5 @@
 package com.ssynhtn.helloworld.view;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -11,7 +10,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Scroller;
+import android.widget.OverScroller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,18 +22,16 @@ public class PieChart extends ViewGroup {
     private static final String TAG = PieChart.class.getSimpleName();
 
     private List<Item> mData = new ArrayList<>();
-
     private float mTotal = 0.0f;
 
     private RectF mPieBounds = new RectF();
-
     private Paint mPiePaint;
 
     private int mPieRotation;
 
     private PieView mPieView;
-    private Scroller mScroller;
-    private ValueAnimator mScrollAnimator;
+
+    private OverScroller mScroller;
     private GestureDetector mDetector;
 
     /**
@@ -120,17 +117,7 @@ public class PieChart extends ViewGroup {
 
 
         // Create a Scroller to handle the fling gesture.
-        mScroller = new Scroller(getContext(), null, true);
-        // The scroller doesn't have any built-in animation functions--it just supplies
-        // values when we ask it to. So we have to have a way to call it every frame
-        // until the fling ends. This code (ab)uses a ValueAnimator object to generate
-        // a callback on every animation frame. We don't use the animated value at all.
-        mScrollAnimator = ValueAnimator.ofFloat(0, 1);
-        mScrollAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                tickScrollAnimation();
-            }
-        });
+        mScroller = new OverScroller(getContext());
 
         // Create a gesture detector to handle onTouch messages
         mDetector = new GestureDetector(getContext(), new GestureListener());
@@ -149,19 +136,13 @@ public class PieChart extends ViewGroup {
         computeScrollCount++;
 
         Log.d(TAG, "computeScroll, count " + computeScrollCount);
-    }
 
-    private int tickScrollCount;
-    private void tickScrollAnimation() {
-        tickScrollCount++;
-        Log.d(TAG, "tick Scroll count " + tickScrollCount);
         if (!mScroller.isFinished()) {
             mScroller.computeScrollOffset();
             setPieRotation(mScroller.getCurrY());
-        } else {
-            mScrollAnimator.cancel();
         }
     }
+
 
 
     private class PieView extends View {
@@ -237,9 +218,6 @@ public class PieChart extends ViewGroup {
                     Integer.MIN_VALUE,
                     Integer.MAX_VALUE);
 
-            // Start the animator and tell it to animate for the expected duration of the fling.
-            mScrollAnimator.setDuration(mScroller.getDuration());
-            mScrollAnimator.start();
             return true;
         }
 

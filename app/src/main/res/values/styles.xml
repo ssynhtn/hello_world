@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -39,6 +40,9 @@
 
     <style name="SimpleText">
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="MySeekbar">
     </style>
 
 </resources>

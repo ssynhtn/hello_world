@@ -167,7 +167,10 @@
         <activity android:name=".ViewPagerTestActivity" />
         <activity android:name=".InterceptActivity" />
         <activity android:name=".PieActivity" />
-        <activity android:name=".InteractiveChartActivity"></activity>
+        <activity android:name=".InteractiveChartActivity" />
+        <activity android:name=".TouchViewPagerActivity" />
+        <activity android:name=".RecentTaskActivity" />
+        <activity android:name=".AnimationViewActivity"></activity>
     </application>
 
 </manifest>

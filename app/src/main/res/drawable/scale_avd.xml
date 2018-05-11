@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item>
+        <shape>
+            <solid android:color="@android:color/holo_blue_bright" />
+        </shape>
+    </item>
+
+
+    <item>
+        <clip android:drawable="@drawable/avd" android:clipOrientation="horizontal" android:gravity="left"/>
+    </item>
+
+</layer-list>

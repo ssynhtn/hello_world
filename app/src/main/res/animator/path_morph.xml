@@ -3,6 +3,8 @@
     <set xmlns:android="http://schemas.android.com/apk/res/android">
         <objectAnimator
             android:duration="3000"
+            android:repeatMode="reverse"
+            android:repeatCount="infinite"
             android:propertyName="pathData"
             android:valueFrom="M180,80L220,160L320,160L250,250L300,300L180,280L10,300L120,220L60,120L160,160z"
             android:valueTo="M180,80L220,160L235,205L250,250L300,300L155,300L10,300L120,220L140,200L160,160z"

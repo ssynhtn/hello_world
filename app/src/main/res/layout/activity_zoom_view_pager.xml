@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="60dp"
-    android:paddingRight="60dp"
-    android:clipToPadding="false"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:clipToPadding="true"
     tools:context="com.ssynhtn.helloworld.ZoomViewPagerActivity">
 
 </android.support.v4.view.ViewPager>

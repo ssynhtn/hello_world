@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_music_progress">
+    <target
+        android:animation="@animator/music_progress_trim_path1"
+        android:name="line1" />
+
+    <target
+        android:animation="@animator/music_progress_trim_path2"
+        android:name="line2" />
+
+    <target
+        android:animation="@animator/music_progress_trim_path3"
+        android:name="line3" />
+
+    <target
+        android:animation="@animator/music_progress_trim_path4"
+        android:name="line4" />
+
+</animated-vector>

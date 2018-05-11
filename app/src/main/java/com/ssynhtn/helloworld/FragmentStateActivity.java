@@ -49,6 +49,9 @@ public class FragmentStateActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            if (position == 0) {
+                return new SimpleButtonFragment();
+            }
             return SimpleTextFragment.newInstance("" + position);
 //            if (position < 2) {
 //                return new RecyclerViewExpandFragment();
